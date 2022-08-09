@@ -1,4 +1,5 @@
-from dauthz.middlewares.enforcer import EnforcerMiddleward
 from django.utils.decorators import decorator_from_middleware
 
-enforcer_middleward = decorator_from_middleware(EnforcerMiddleward)
+from dauthz.middlewares.enforcer import EnforcerMiddleware
+
+enforcer_middleward = decorator_from_middleware(EnforcerMiddleware)
