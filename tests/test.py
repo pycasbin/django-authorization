@@ -10,6 +10,7 @@ from django.test import TestCase
 import tests.settings as settings
 from dauthz.core import enforcers
 from dauthz.middlewares.request import RequestMiddleware
+from dauthz.middlewares.enforcer import EnforcerMiddleware
 
 
 def get_fixture(path):
@@ -48,14 +49,14 @@ def make_request(is_anonymous, username, path, method):
 
 class TestConfig(TestCase):
     def test_default_enforcer(self):
-        request_middleware_enforcer_name = authz_conf["REQUEST_MIDDLEWARE"]["ENFORCER_NAME"]
-        request_middleware_enforcer = enforcers.enforcer_list[request_middleware_enforcer_name]
         get_response = mock.MagicMock()
+        request_middleware_enforcer_name = "DEFAULT"
+
+        request_middleware_enforcer = enforcers[request_middleware_enforcer_name]
         request_middleware = RequestMiddleware(get_response)
         assert request_middleware.enforcer == request_middleware_enforcer
 
     def test_request_middleware(self):
-
         get_response = mock.MagicMock()
         request = make_request(False, "alice0", "/", "GET")
         request_middleware = RequestMiddleware(get_response)
@@ -72,6 +73,28 @@ class TestConfig(TestCase):
 
         try:
             request_middleware.process_request(request)
+        except PermissionDenied:
+            self.fail("PermissionDenied shouldn't be raised")
+        else:
+            pass
+
+    def test_enforcer_middleware(self):
+        get_response = mock.MagicMock()
+        request = make_request(False, "alice0", "", "")
+        enforcer_middleware = EnforcerMiddleware(get_response)
+
+        try:
+            enforcer_middleware.process_request(request, "book", "read")
+        except PermissionDenied:
+            pass
+        else:
+            self.fail("PermissionDenied not raised")
+
+        enforcer_middleware.enforcer.add_policy("alice0", "book", "read")
+        assert enforcer_middleware.enforcer.enforce("alice0", "book", "read") is True
+
+        try:
+            enforcer_middleware.process_request(request, "book", "read")
         except PermissionDenied:
             self.fail("PermissionDenied shouldn't be raised")
         else:
