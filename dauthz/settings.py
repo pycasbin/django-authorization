@@ -7,7 +7,7 @@ DAUTHZ = {
         # Casbin model setting.
         'MODEL': {
             # Available Settings: "file", "text"
-            'CONFIG_TYPE': 'text',
+            'CONFIG_TYPE': 'file',
             'CONFIG_FILE_PATH': Path(__file__).parent.joinpath('dauthz-model.conf'),
             'CONFIG_TEXT': '',
         },
