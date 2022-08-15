@@ -44,10 +44,6 @@ enforcer_conf_list = getattr(settings, "DAUTHZ")
 for item in enforcer_conf_list.items():
     name = item[0]
     conf = item[1]
-    if name is "DEFAULT":
-        pass
-    else:
-        enforcers[name] = ProxyEnforcer(enforcer_name=name, enforcer_conf=conf)
+    enforcers[name] = ProxyEnforcer(enforcer_name=name, enforcer_conf=conf)
 
-default_name = enforcer_conf_list["DEFAULT"]
-enforcer = enforcers[default_name]
+enforcer = enforcers.get("DEFAULT")
