@@ -8,7 +8,7 @@ from django.core.exceptions import PermissionDenied
 from django.test import TestCase
 
 import tests.settings as settings
-from dauthz.core import enforcers
+from dauthz.core import enforcers, enforcer
 from dauthz.middlewares.request import RequestMiddleware
 from dauthz.middlewares.enforcer import EnforcerMiddleware
 
@@ -50,11 +50,15 @@ def make_request(is_anonymous, username, path, method):
 class TestConfig(TestCase):
     def test_default_enforcer(self):
         get_response = mock.MagicMock()
-        request_middleware_enforcer_name = "DEFAULT"
 
-        request_middleware_enforcer = enforcers[request_middleware_enforcer_name]
         request_middleware = RequestMiddleware(get_response)
-        assert request_middleware.enforcer == request_middleware_enforcer
+        assert request_middleware.enforcer == enforcer
+        enforcer_middleware = EnforcerMiddleware(get_response)
+        assert enforcer_middleware.enforcer == enforcer
+
+        assert enforcer.enforce("alice0", "book", "read") is False
+        enforcer.add_policy("alice0", "book", "read")
+        assert enforcer.enforce("alice0", "book", "read") is True
 
     def test_request_middleware(self):
         get_response = mock.MagicMock()

@@ -49,8 +49,10 @@ DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memor
 
 # Dauthz
 DAUTHZ = {
-    # Default Dauthz enforcer
-    'DEFAULT': {
+    # set default enforcer
+    'DEFAULT': 'BASIC',
+    # BASIC Dauthz enforcer
+    'BASIC': {
         # Casbin model setting.
         'MODEL': {
             # Available Settings: "file", "text"

@@ -2,8 +2,10 @@ from pathlib import Path
 
 # Dauthz
 DAUTHZ = {
-    # Default Dauthz enforcer
-    'DEFAULT': {
+    # set default enforcer
+    'DEFAULT': 'BASIC',
+    # BASIC Dauthz enforcer
+    'BASIC': {
         # Casbin model setting.
         'MODEL': {
             # Available Settings: "file", "text"
@@ -21,7 +23,6 @@ DAUTHZ = {
             # Changes whether Dauthz will log messages to the Logger.
             'ENABLED': False,
         },
-
         'CACHE': {
 
         },

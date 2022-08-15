@@ -1,7 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from django.utils.deprecation import MiddlewareMixin
 
-from ..core import enforcers
+from ..core import enforcers, enforcer
 
 
 class RequestMiddleware(MiddlewareMixin):
@@ -10,7 +10,7 @@ class RequestMiddleware(MiddlewareMixin):
     def __init__(self, get_response):
         super().__init__(get_response)
         self.get_response = get_response
-        self.enforcer = enforcers.get("DEFAULT")
+        self.enforcer = enforcer
         if self.enforcer:
             self.enforcer.load_policy()
 
