@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import setuptools
 from os import path
+
+import setuptools
 
 desc_file = "README.md"
 

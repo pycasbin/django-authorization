@@ -1,31 +1,28 @@
 from pathlib import Path
+
 # Dauthz
 DAUTHZ = {
-    # Default Dauthz enforcer
-    'DEFAULT' : {
+    # DEFAULT Dauthz enforcer
+    'DEFAULT': {
         # Casbin model setting.
-        'MODEL' : {
+        'MODEL': {
             # Available Settings: "file", "text"
-            'CONFIG_TYPE' : 'file',
-            'CONFIG_FILE_PATH' :  Path(__file__).parent.joinpath('dauthz-model.conf'),
-            'CONFIG_TEXT' : '',
+            'CONFIG_TYPE': 'file',
+            'CONFIG_FILE_PATH': Path(__file__).parent.joinpath('dauthz-model.conf'),
+            'CONFIG_TEXT': '',
         },
 
         # Casbin adapter .
-        'ADAPTER' : 'casbin_adapter.adapter.Adapter',
-        # Database setting.
-        'DATABASE' : {
-            # Database connection for following tables.
-            'CONNECTION' : '',
+        'ADAPTER': {
+            'NAME': 'casbin_adapter.adapter.Adapter',
+            # 'OPTION_1': '',
         },
-
-        'LOG' : {
+        'LOG': {
             # Changes whether Dauthz will log messages to the Logger.
-            'ENABLED' : False,
+            'ENABLED': False,
         },
+        'CACHE': {
 
-        'CACHE' : {
-            
         },
     },
 }
