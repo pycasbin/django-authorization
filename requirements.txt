@@ -1,1 +1,2 @@
-casbin>=1.16.0
+casbin==1.16.8
+Django==4.0.6
