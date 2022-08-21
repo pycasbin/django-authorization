@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = "not-a-production-secret"
 
@@ -25,7 +25,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "dauthz.middlewares.request.RequestMiddleware",
+    "dauthz.middlewares.request_middleware.RequestMiddleware",
 ]
 
 TEMPLATES = [
@@ -73,3 +73,5 @@ DAUTHZ = {
         },
     },
 }
+
+CASBIN_MODEL = os.path.join(BASE_DIR, 'dauthz_model.conf')

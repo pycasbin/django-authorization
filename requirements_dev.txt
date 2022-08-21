@@ -1,0 +1,5 @@
+-r requirements.txt
+
+mock==4.0.3
+setuptools==60.2.0
+casbin_django_orm_adapter==1.0.2
