@@ -29,6 +29,11 @@ jobs:
         pip install coveralls
         pip install pytest
 
+    - name: django migrate
+      run: |
+        python manage.py makemigrations
+        python manage.py migrate
+
     - name: Run tests
       run: coverage run -m django test --settings=tests.settings
 

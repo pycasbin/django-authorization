@@ -43,9 +43,9 @@ TEMPLATES = [
     }
 ]
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": str(BASE_DIR + "/test.db")}}
 
-# CASBIN_MODEL = os.path.join(BASE_DIR, "tests", "dauthz-model.conf")
+CASBIN_MODEL = os.path.join(BASE_DIR, "tests", "dauthz-model.conf")
 
 # Dauthz
 DAUTHZ = {
@@ -70,5 +70,3 @@ DAUTHZ = {
         "CACHE": {},
     },
 }
-
-CASBIN_MODEL = os.path.join(BASE_DIR, "dauthz_model.conf")
