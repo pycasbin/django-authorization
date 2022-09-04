@@ -8,13 +8,12 @@ from .utils import import_class
 
 
 class ProxyEnforcer(Enforcer):
-    name = None
-    logger = None
-    enable_log = None
-
     def __init__(self, enforcer_name: str, enforcer_conf: dict):
         self.name = enforcer_name
+        self.enable_log = enforcer_conf["LOG"]["ENABLED"]
         self.logger = logging.getLogger(self.name)
+        if not self.enable_log:
+            self.logger.disabled = True
 
         model_type = enforcer_conf["MODEL"]["CONFIG_TYPE"]
         if model_type == "file":
@@ -22,7 +21,6 @@ class ProxyEnforcer(Enforcer):
         else:
             model = enforcer_conf["MODEL"]["CONFIG_TEXT"]
         model = str(model)
-        self.enable_log = enforcer_conf["LOG"]["ENABLED"]
 
         adapter_loc = enforcer_conf["ADAPTER"]["NAME"]
         adapter_class = import_class(adapter_loc)
@@ -35,7 +33,7 @@ class ProxyEnforcer(Enforcer):
         role_manager = enforcer_conf.get("ROLE_MANAGER")
         if role_manager:
             self.set_role_manager(role_manager)
-        self.logger.debug("Casbin enforcer initialised")
+        self.logger.info("Casbin enforcer initialised")
 
 
 enforcer = None
