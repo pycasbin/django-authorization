@@ -30,7 +30,7 @@ class RequestMiddleware(MiddlewareMixin):
         raise PermissionDenied
 
 
-def set_enforcer_for_enforcer_middleware(enforcer_name):
+def set_enforcer_for_request_middleware(enforcer_name):
     _enforcer = enforcers[enforcer_name]
     if enforcer:
         RequestMiddleware.enforcer = _enforcer

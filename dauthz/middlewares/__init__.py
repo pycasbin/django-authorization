@@ -1,2 +1,2 @@
-from .enforcer_middleware import EnforcerMiddleware
-from .request_middleware import RequestMiddleware
+from .enforcer_middleware import EnforcerMiddleware, set_enforcer_for_enforcer_middleware
+from .request_middleware import RequestMiddleware, set_enforcer_for_request_middleware

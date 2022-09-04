@@ -67,6 +67,5 @@ DAUTHZ = {
             # Changes whether Dauthz will log messages to the Logger.
             "ENABLED": False,
         },
-        "CACHE": {},
     },
 }
