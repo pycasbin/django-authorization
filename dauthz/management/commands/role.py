@@ -10,8 +10,6 @@ class Command(BaseCommand):
         add role for user: python manage.py role [optional: --enforcer=<enforcer_name>] assign <user> <role>
         get roles of user: python manage.py role [optional: --enforcer=<enforcer_name>] get <user>
     """
-    requires_system_checks = True
-    requires_migrations_checks = True
 
     def add_arguments(self, parser):
         parser.add_argument("action", type=str, help="ADD/GET role policy")

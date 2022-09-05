@@ -10,8 +10,6 @@ class Command(BaseCommand):
             add policy: python manage.py policy  [optional: --enforcer=<enforcer_name>] add <sub> <obj> <act>
             get policy: python manage.py policy  [optional: --enforcer=<enforcer_name>] get <sub> <obj> <act>
         """
-    requires_system_checks = True
-    requires_migrations_checks = True
 
     def add_arguments(self, parser):
         parser.add_argument("action", type=str, help="ADD/GET group policy")
