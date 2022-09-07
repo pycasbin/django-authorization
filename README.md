@@ -6,11 +6,19 @@ Django-authorization is an authorization library for Django framework.
 
 Based on [Casbin](https://github.com/casbin/pycasbin) and [Django-casbin ](https://github.com/pycasbin/django-casbin) (middleware, light weight of this plugin), an authorization library that that supports access control models like ACL, RBAC, ABAC.
 
-![image](https://user-images.githubusercontent.com/75596353/188299007-2c3c3fcd-a019-4c9e-a455-46ff93bb8613.png)
+![image](https://user-images.githubusercontent.com/75596353/188881538-a6a99cb1-c88b-4738-bf4f-452be4fb7c2d.png)
 
-All you need to learn to use `Casbin` first.
 
-[toc]
+- [Django Authorization](#django-authorization)
+  * [Installation and Configure](#installation-and-configure)
+  * [Usage](#usage)
+    + [Some Important Concepts:](#some-important-concepts-)
+    + [Middleware Usage](#middleware-usage)
+    + [Decorator Usage](#decorator-usage)
+    + [Command Line Usage](#command-line-usage)
+  * [License](#license)
+
+
 
 ## Installation and Configure
 
