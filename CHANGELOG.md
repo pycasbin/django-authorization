@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.1](https://github.com/pycasbin/django-authorization/compare/v1.0.0...v1.0.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* optimize schematic & add catalog ([#11](https://github.com/pycasbin/django-authorization/issues/11)) ([02adeb3](https://github.com/pycasbin/django-authorization/commit/02adeb3388c75b699db9dc1bc42eda1ed5d0679e))
+
 # 1.0.0 (2022-09-05)
 
 
