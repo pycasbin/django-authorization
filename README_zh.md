@@ -1,38 +1,41 @@
 # Django Authorization
 
-English | [中文](README_zh.md)
+[English](README.md) | 中文
 
 
 
-Django-authorization is an authorization library for Django framework.
+Django-authorization是一个适用于于Django框架的授权库。
 
 [![tests](https://github.com/pycasbin/django-authorization/actions/workflows/release.yml/badge.svg)](https://github.com/pycasbin/django-authorization/actions/workflows/release.yml) [![Coverage Status](https://coveralls.io/repos/github/pycasbin/django-authorization/badge.svg)](https://coveralls.io/github/pycasbin/django-authorization) [![Version](https://img.shields.io/pypi/v/django-authorization.svg)](https://pypi.org/project/django-authorization/) [![Download](https://img.shields.io/pypi/dm/django-authorization.svg)](https://pypi.org/project/django-authorization/) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/casbin/lobby)
 
-Based on [Casbin](https://github.com/casbin/pycasbin) and [Django-casbin ](https://github.com/pycasbin/django-casbin) (middleware, light weight of this plugin), an authorization library that that supports access control models like ACL, RBAC, ABAC.
+Django-authorization基于[Casbin](https://github.com/casbin/pycasbin)和[Django-casbin](https://github.com/pycasbin/django-casbin)制作，支持ACL、RBAC、ABAC等多种访问模式。
 
 ![image](https://user-images.githubusercontent.com/75596353/188881538-a6a99cb1-c88b-4738-bf4f-452be4fb7c2d.png)
 
-
 - [Django Authorization](#django-authorization)
-  * [Installation and Configure](#installation-and-configure)
-  * [Usage](#usage)
-    + [Some Important Concepts:](#some-important-concepts-)
-    + [Middleware Usage](#middleware-usage)
-    + [Decorator Usage](#decorator-usage)
-    + [Command Line Usage](#command-line-usage)
-  * [License](#license)
+  
+  * [安装和配置](#安装和配置)
+  
+  * [使用方法](#使用方法)
+    
+    + [一些基本概念](#一些基本概念)
+    + [使用鉴权中间件](#使用鉴权中间件)
+    + [使用鉴权装饰器](#使用鉴权装饰器)
+    + [使用命令行修改权限模型](#使用命令行修改权限模型)
+    
+  * [许可证](#许可证)
+  
+    
 
-
-
-## Installation and Configure
+## 安装和配置
 
 ```
 pip install django-authorization
 ```
 
-We recommend that you first configure the adapter for persistent storage of the policy, such as: 
+我们建议首先配置用于能够将鉴权策略持久化存储到数据库的适配器，比如说[django-orm-adapter](https://github.com/pycasbin/django-orm-adapter)
 
-[django-orm-adapter](https://github.com/pycasbin/django-orm-adapter), After integrating it into the project continue with the configuration of django-authrization
+将adapter集成到项目中后继续配置django-authrization
 
 ```python
 # 1. Add the app to INSTALLED_APPS
@@ -70,13 +73,13 @@ DAUTHZ = {
 }
 ```
 
-## Usage
+## 使用方法
 
-### Some Important Concepts:
+### 一些基本概念
 
-such as .conf file, policy, sub, obj, act, please refer to the [casbin website](https://casbin.io/)
+django-authorization基于casbin开发，相关术语（例如enforcer, adapter等）可以到[casbin website](https://casbin.io/)官网查阅文档
 
-### Middleware Usage
+### 使用鉴权中间件
 
 ```python
 # Install middleware for django-authorization as required
@@ -92,11 +95,11 @@ MIDDLEWARE = [
 ]
 ```
 
-You can freely set the casbin enforcer for the middleware via API: set_enforcer_for_request_middleware(enforcer_name) and set_enforcer_for_enforcer_middleware(enforcer_name)
+可以通过API自由设置中间件的enforcer：set_enforcer_for_request_middleware(enforcer_name)和set_enforcer_enforcer_middleware(enforcer_name)。
 
-### Decorator Usage
+### 使用鉴权装饰器
 
-Request decorator will check the authorization status of user, path, method
+请求装饰器将检查用户、路径、方法的授权状态，例如：
 
 ```python
 # use request decorator
@@ -105,7 +108,7 @@ def some_view(request):
     return HttpResponse("Hello World")
 ```
 
-Enforcer decorator will check the authorization status of user, obj, edit. example: 
+Enforcer装饰器将检查用户、对象、编辑的授权状态， 例如：
 
 ```python
 # use enforcer decorator
@@ -115,9 +118,9 @@ def some_view(request):
     return HttpResponse("Hello World")
 ```
 
-### Command Line Usage
+### 使用命令行修改权限模型
 
-The command line operation allows you to operate directly on the enforcer's database. Three sets of commands are available: policy commands, group commands and role commands.
+命令行操作允许你直接对执行者的数据库进行操作。有三组命令可用：策略命令、组命令和角色命令。
 
 ```shell
 Add/Get policy, usage: 
@@ -133,6 +136,6 @@ python manage.py group [opt: --enforcer=<enforcer_name>] add <user> <role> [opt:
 python manage.py group [opt: --enforcer=<enforcer_name>] get <user> <role> [opt:<domain>]
 ```
 
-## License
+## 许可证
 
-This project is licensed under the [Apache 2.0 license](https://github.com/php-casbin/laravel-authz/blob/master/LICENSE).
+本项目的许可证遵循：[Apache 2.0 license](https://github.com/php-casbin/laravel-authz/blob/master/LICENSE).

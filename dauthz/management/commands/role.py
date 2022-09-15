@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = """
     Assign/Get role to user,
     usage: 
-        add role for user: python manage.py role [optional: --enforcer=<enforcer_name>] assign <user> <role>
+        add role for user: python manage.py role [optional: --enforcer=<enforcer_name>] add <user> <role>
         get roles of user: python manage.py role [optional: --enforcer=<enforcer_name>] get <user>
     """
 
