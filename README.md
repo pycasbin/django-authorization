@@ -70,6 +70,8 @@ DAUTHZ = {
 }
 ```
 
+to better prompt the configure method of django-authorization, we made a django-app based on django-authorization, you can see it in [django-authorization-example](https://github.com/pycasbin/django-authorization-example)
+
 ## Usage
 
 ### Some Important Concepts:

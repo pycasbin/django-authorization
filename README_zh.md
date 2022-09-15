@@ -73,6 +73,8 @@ DAUTHZ = {
 }
 ```
 
+为了更好地介绍django-authorization的配置方法，我们搭建了一个基于django-authorization的django应用，您可以在这里[django-authorization-example](https://github.com/pycasbin/django-authorization-example)查看
+
 ## 使用方法
 
 ### 一些基本概念
