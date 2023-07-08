@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.2](https://github.com/pycasbin/django-authorization/compare/v1.0.1...v1.0.2) (2023-07-08)
+
+
+### Bug Fixes
+
+* update ubuntu and node version ([#14](https://github.com/pycasbin/django-authorization/issues/14)) ([8d77ce7](https://github.com/pycasbin/django-authorization/commit/8d77ce740a03cbf3e25d0f82e4a894e983c04bb0))
+
 ## [1.0.1](https://github.com/pycasbin/django-authorization/compare/v1.0.0...v1.0.1) (2022-09-08)
 
 
