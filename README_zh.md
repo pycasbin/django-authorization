@@ -79,7 +79,7 @@ DAUTHZ = {
 
 ### 一些基本概念
 
-django-authorization基于casbin开发，相关术语（例如enforcer, adapter等）可以到[casbin website](https://casbin.io/)官网查阅文档
+django-authorization基于casbin开发，相关术语（例如enforcer, adapter等）可以到[casbin website](https://casbin.org/)官网查阅文档
 
 ### 使用鉴权中间件
 

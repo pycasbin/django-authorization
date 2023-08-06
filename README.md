@@ -76,7 +76,7 @@ to better prompt the configure method of django-authorization, we made a django-
 
 ### Some Important Concepts:
 
-such as .conf file, policy, sub, obj, act, please refer to the [casbin website](https://casbin.io/)
+such as .conf file, policy, sub, obj, act, please refer to the [casbin website](https://casbin.org/)
 
 ### Middleware Usage
 
