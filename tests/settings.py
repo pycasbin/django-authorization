@@ -47,6 +47,11 @@ DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": str(BAS
 
 CASBIN_MODEL = os.path.join(BASE_DIR, "tests", "dauthz-model.conf")
 
+AUTHENTICATION_BACKENDS = [
+    "dauthz.backends.CasbinBackend",
+    # "django.contrib.auth.backends.ModelBackend",
+    ]
+
 # Dauthz
 DAUTHZ = {
     # DEFAULT Dauthz enforcer

@@ -1,4 +1,3 @@
-# from casbin_adapter.adapter import Adapter as CasbinAdapter
 import logging
 
 from casbin import Enforcer
