@@ -11,6 +11,7 @@ class CasbinBackend(BaseBackend):
     """
     Check permissions with Casbin.
     """
+
     def __init__(self):
         self.enforcer = enforcer
 
@@ -47,9 +48,7 @@ class CasbinBackend(BaseBackend):
         if not hasattr(user_obj, perm_cache_name):
             policies = self.enforcer.get_implicit_permissions_for_user(user_obj.username)
             perms = tuple(map(tuple, policies))
-            setattr(
-                user_obj, perm_cache_name, perms
-            )
+            setattr(user_obj, perm_cache_name, perms)
         return getattr(user_obj, perm_cache_name)
 
     def get_user_permissions(self, user_obj, obj=None):
