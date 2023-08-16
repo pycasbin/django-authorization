@@ -138,6 +138,21 @@ python manage.py group [opt: --enforcer=<enforcer_name>] add <user> <role> [opt:
 python manage.py group [opt: --enforcer=<enforcer_name>] get <user> <role> [opt:<domain>]
 ```
 
+### 使用django backend
+
+django-authorization提供了一个django backend，可以将django-authorization作为django的权限后端，实现django的权限管理。你可以在`tests/test_backend.py`中查看使用方法。
+如果你需要启用casbin backend，你需要在`settings.py`中添加如下配置：
+
+```python
+# settings.py
+AUTHENTICATION_BACKENDS = [
+    "dauthz.backends.CasbinBackend",
+    "django.contrib.auth.backends.ModelBackend", 
+    ]
+```
+
+注意，由于django权限系统的机制，您仍需要使用pycasbin的`add_policy()`方法来添加策略。
+
 ## 许可证
 
 本项目的许可证遵循：[Apache 2.0 license](https://github.com/php-casbin/laravel-authz/blob/master/LICENSE).

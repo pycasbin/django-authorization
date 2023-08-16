@@ -43,7 +43,7 @@ class TestConfig(TestCase):
             {("alice", "data1", "read"), ("alice", "data1", "write")}
         )
 
-        user = self.UserModel._default_manager.get(pk=self.user.pk)
+        user = self.UserModel._default_manager.get(pk=self.user.pk)  # to reset cache
         self.e.add_policy("data2_admin", "data2", "read")
         self.e.add_policy("data2_admin", "data2", "write")
         self.e.add_role_for_user("alice", "data2_admin")
@@ -54,7 +54,7 @@ class TestConfig(TestCase):
         )
 
     def test_has_perm(self):
-        user = self.UserModel._default_manager.get(pk=self.user.pk)
+        user = self.UserModel._default_manager.get(pk=self.user.pk)  # to reset cache
         self.assertFalse(user.has_perm(("alice", "data1", "read")))
 
         user = self.UserModel._default_manager.get(pk=self.user.pk)
