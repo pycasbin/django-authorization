@@ -22,6 +22,7 @@ class TestConfig(TestCase):
         self.e = enforcer
 
     def test_get_user_permissions(self):
+        self.e.clear_policy()
         user = self.UserModel._default_manager.get(pk=self.user.pk)
         self.assertEqual(user.get_user_permissions(), set())
         self.e.add_policy("alice", "data1", "read")
@@ -32,6 +33,7 @@ class TestConfig(TestCase):
         )
 
     def test_get_all_permissions(self):
+        self.e.clear_policy()
         user = self.UserModel._default_manager.get(pk=self.user.pk)
         self.assertEqual(user.get_all_permissions(), set())
 
@@ -54,6 +56,7 @@ class TestConfig(TestCase):
         )
 
     def test_has_perm(self):
+        self.e.clear_policy()
         user = self.UserModel._default_manager.get(pk=self.user.pk)  # to reset cache
         self.assertFalse(user.has_perm(("alice", "data1", "read")))
 

@@ -137,7 +137,7 @@ python manage.py group [opt: --enforcer=<enforcer_name>] get <user> <role> [opt:
 
 ### Backend Usage
 
-You can integrate Pycasbin with Django authentication system. For more usage, you can refer to `tests/test_backend.py`. To enable the backend, you need to specify it in `settings.py`.
+You can integrate Pycasbin with [Django authentication system](https://docs.djangoproject.com/en/4.2/topics/auth/default/#permissions-and-authorization). For more usage, you can refer to `tests/test_backend.py`. To enable the backend, you need to specify it in `settings.py`.
 
 ```python
 AUTHENTICATION_BACKENDS = [

@@ -140,7 +140,7 @@ python manage.py group [opt: --enforcer=<enforcer_name>] get <user> <role> [opt:
 
 ### 使用django backend
 
-django-authorization提供了一个django backend，可以将django-authorization作为django的权限后端，实现django的权限管理。你可以在`tests/test_backend.py`中查看使用方法。
+django-authorization提供了一个django backend，可以将django-authorization与[Django权限系统](https://docs.djangoproject.com/en/4.2/topics/auth/default/#permissions-and-authorization)结合，实现django的权限管理。你可以在`tests/test_backend.py`中查看使用方法。
 如果你需要启用casbin backend，你需要在`settings.py`中添加如下配置：
 
 ```python

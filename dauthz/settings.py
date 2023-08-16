@@ -27,4 +27,4 @@ DAUTHZ = {
 AUTHENTICATION_BACKENDS = [
     "dauthz.backends.CasbinBackend",
     "django.contrib.auth.backends.ModelBackend",
-    ]
+]
