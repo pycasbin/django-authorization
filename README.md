@@ -135,6 +135,19 @@ python manage.py group [opt: --enforcer=<enforcer_name>] add <user> <role> [opt:
 python manage.py group [opt: --enforcer=<enforcer_name>] get <user> <role> [opt:<domain>]
 ```
 
+### Backend Usage
+
+You can integrate Pycasbin with [Django authentication system](https://docs.djangoproject.com/en/4.2/topics/auth/default/#permissions-and-authorization). For more usage, you can refer to `tests/test_backend.py`. To enable the backend, you need to specify it in `settings.py`.
+
+```python
+AUTHENTICATION_BACKENDS = [
+    "dauthz.backends.CasbinBackend",
+    "django.contrib.auth.backends.ModelBackend", 
+    ]
+```
+
+Note that you still need to add permissions for users with pycasbin `add_policy()` due to the mechanism of the django permission system.
+
 ## License
 
 This project is licensed under the [Apache 2.0 license](https://github.com/php-casbin/laravel-authz/blob/master/LICENSE).

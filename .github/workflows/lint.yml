@@ -1,0 +1,46 @@
+name: Lint
+
+on:
+  # Trigger the workflow on push,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install black flake8
+
+      - name: Get email
+        run: |
+          actor="${{ github.actor }}"
+          email=$(curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/users/$actor | jq -r '.email')
+          echo "Email is $email"
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          auto_fix: true
+          black: true
+          black_auto_fix: true
+          commit_message: "fix: Fix code style issues with Black"
+          git_name: semantic-release-bot
+          git_email: semantic-release-bot@martynus.net
