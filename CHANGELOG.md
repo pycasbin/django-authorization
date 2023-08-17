@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.1.0](https://github.com/pycasbin/django-authorization/compare/v1.0.3...v1.1.0) (2023-08-17)
+
+
+### Features
+
+* integrate django authentication system ([#16](https://github.com/pycasbin/django-authorization/issues/16)) ([34770ec](https://github.com/pycasbin/django-authorization/commit/34770ecd5e11f7a05c78b60d234e6975abfe4f4e))
+
 ## [1.0.3](https://github.com/pycasbin/django-authorization/compare/v1.0.2...v1.0.3) (2023-08-06)
 
 
