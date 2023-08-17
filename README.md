@@ -6,7 +6,11 @@ English | [中文](README_zh.md)
 
 Django-authorization is an authorization library for Django framework.
 
-[![tests](https://github.com/pycasbin/django-authorization/actions/workflows/release.yml/badge.svg)](https://github.com/pycasbin/django-authorization/actions/workflows/release.yml) [![Coverage Status](https://coveralls.io/repos/github/pycasbin/django-authorization/badge.svg)](https://coveralls.io/github/pycasbin/django-authorization) [![Version](https://img.shields.io/pypi/v/django-authorization.svg)](https://pypi.org/project/django-authorization/) [![Download](https://img.shields.io/pypi/dm/django-authorization.svg)](https://pypi.org/project/django-authorization/) [![Discord](https://img.shields.io/discord/1022748306096537660?logo=discord&label=discord&color=5865F2)](https://discord.gg/S5UjpzGZjN)
+[![tests](https://github.com/pycasbin/django-authorization/actions/workflows/release.yml/badge.svg)](https://github.com/pycasbin/django-authorization/actions/workflows/release.yml)
+[![Coverage Status](https://coveralls.io/repos/github/pycasbin/django-authorization/badge.svg?branch=master)](https://coveralls.io/github/pycasbin/django-authorization?branch=master)
+[![Version](https://img.shields.io/pypi/v/django-authorization.svg)](https://pypi.org/project/django-authorization/)
+[![Download](https://img.shields.io/pypi/dm/django-authorization.svg)](https://pypi.org/project/django-authorization/)
+[![Discord](https://img.shields.io/discord/1022748306096537660?logo=discord&label=discord&color=5865F2)](https://discord.gg/S5UjpzGZjN)
 
 Based on [Casbin](https://github.com/casbin/pycasbin) and [Django-casbin ](https://github.com/pycasbin/django-casbin) (middleware, light weight of this plugin), an authorization library that that supports access control models like ACL, RBAC, ABAC.
 
