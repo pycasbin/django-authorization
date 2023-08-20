@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.2.0](https://github.com/pycasbin/django-authorization/compare/v1.1.0...v1.2.0) (2023-08-20)
+
+
+### Features
+
+* remove redundant authenticate method ([#17](https://github.com/pycasbin/django-authorization/issues/17)) ([8cbc97a](https://github.com/pycasbin/django-authorization/commit/8cbc97aba4893e95c312f428bb4ed7f1579f21db))
+
 # [1.1.0](https://github.com/pycasbin/django-authorization/compare/v1.0.3...v1.1.0) (2023-08-17)
 
 
