@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.2.1](https://github.com/pycasbin/django-authorization/compare/v1.2.0...v1.2.1) (2023-10-28)
+
+
+### Bug Fixes
+
+* migrate setup.py to pyproject.toml ([#18](https://github.com/pycasbin/django-authorization/issues/18)) ([661b4e0](https://github.com/pycasbin/django-authorization/commit/661b4e0bef49247e8b447a33978e8c1439119b5c))
+
 # [1.2.0](https://github.com/pycasbin/django-authorization/compare/v1.1.0...v1.2.0) (2023-08-20)
 
 

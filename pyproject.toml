@@ -1,6 +1,6 @@
 [project]
 name = "django-authorization"
-version = "1.2.0"
+version = "1.2.1"
 authors = [
     {name = "JonLee", email = "leeqvip@gmail.com"},
 ]
