@@ -1,2 +1,48 @@
+[project]
+name = "django-authorization"
+version = "1.2.0"
+authors = [
+    {name = "JonLee", email = "leeqvip@gmail.com"},
+]
+description = "An authorization library that supports access control models like ACL, RBAC, ABAC in Django"
+readme = "README.md"
+keywords = [
+    "casbin",
+    "django",
+    "acl",
+    "rbac",
+    "abac",
+    "auth",
+    "authz",
+    "authorization",
+    "access control",
+    "permission",
+]
+dynamic = ["dependencies"]
+requires-python = ">=3.6"
+license = {text = "Apache 2.0"}
+classifiers = [
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Home-page = "https://github.com/pycasbin/django-authorization"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["tests"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
 [tool.black]
 line-length = 120
