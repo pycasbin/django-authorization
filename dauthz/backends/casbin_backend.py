@@ -28,7 +28,7 @@ class CasbinBackend(ModelBackend):
         if not user_obj.is_active or user_obj.is_anonymous or obj is not None:
             return set()
 
-        perm_cache_name = "_%s_perm_cache" % from_name
+        perm_cache_name = f"_{from_name}_perm_cache"
         if not hasattr(user_obj, perm_cache_name):
             policies = self.enforcer.get_implicit_permissions_for_user(user_obj.username)
             perms = tuple(map(tuple, policies))

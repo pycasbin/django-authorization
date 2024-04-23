@@ -18,18 +18,19 @@ class Command(BaseCommand):
         parser.add_argument("role", nargs="?", type=str)
 
     def handle(self, *args, **options):
-        enforcer_name = options.get("enforcer")
-        if enforcer_name is None:
-            enforcer_name = "DEFAULT"
+        enforcer_name = options.get("enforcer", "DEFAULT")
         handler_enforcer = None
+
         try:
             handler_enforcer = enforcers[enforcer_name]
         except KeyError:
-            raise Exception("Enforcer `" + enforcer_name + "` not found")
+            raise Exception(f"Enforcer `{enforcer_name}` not found")
 
         action = options.get("action")
         action = action.upper()
+
         user = options.get("user")
+
         if action == "ADD":
             role = options.get("role")
             if role is None:
@@ -43,6 +44,6 @@ class Command(BaseCommand):
             self.stdout.write("Role added")
         elif action == "GET":
             res = handler_enforcer.get_roles_for_user(user)
-            print("user: {} ---> roles: {}".format(user, res))
+            print(f"User: {user} -> Roles: {res}")
         else:
             self.stderr.write("Action not found")

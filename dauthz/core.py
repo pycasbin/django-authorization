@@ -29,6 +29,7 @@ class ProxyEnforcer(Enforcer):
         watcher = enforcer_conf.get("WATCHER")
         if watcher:
             self.set_watcher(watcher)
+
         role_manager = enforcer_conf.get("ROLE_MANAGER")
         if role_manager:
             self.set_role_manager(role_manager)
@@ -38,6 +39,7 @@ class ProxyEnforcer(Enforcer):
 enforcer = None
 enforcers = {}
 enforcer_conf_list = getattr(settings, "DAUTHZ")
+
 for item in enforcer_conf_list.items():
     name = item[0]
     conf = item[1]

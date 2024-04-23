@@ -26,7 +26,7 @@ class Command(BaseCommand):
         try:
             handler_enforcer = enforcers[enforcer_name]
         except KeyError:
-            raise Exception("Enforcer `" + enforcer_name + "` not found")
+            raise Exception(f"Enforcer `{enforcer_name}` not found")
 
         action = options.get("action")
         action = action.upper()
@@ -52,11 +52,13 @@ class Command(BaseCommand):
             domain = options.get("domain")
             if domain is None:
                 res = handler_enforcer.has_grouping_policy(user, role)
-                self.stdout.write("User: {} ---> Role: {} ---> Result: {}".format(user, role, res))
+                self.stdout.write(
+                    f"User: {user} -> Role: {role} --> Result: {res}"
+                )
             else:
                 res = handler_enforcer.has_grouping_policy(user, role, domain)
                 self.stdout.write(
-                    "User: {} ---> Role: {} ---> Domain: {} ---> Result: {}".format(user, role, domain, res)
+                    f"User: {user} -> Role: {role} -> Domain: {domain} -> Result: {res}"
                 )
         else:
             self.stderr.write("Action not found")
