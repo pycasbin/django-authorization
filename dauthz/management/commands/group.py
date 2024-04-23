@@ -52,9 +52,7 @@ class Command(BaseCommand):
             domain = options.get("domain")
             if domain is None:
                 res = handler_enforcer.has_grouping_policy(user, role)
-                self.stdout.write(
-                    f"User: {user} -> Role: {role} --> Result: {res}"
-                )
+                self.stdout.write(f"User: {user} -> Role: {role} --> Result: {res}")
             else:
                 res = handler_enforcer.has_grouping_policy(user, role, domain)
                 self.stdout.write(
