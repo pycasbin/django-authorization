@@ -8,5 +8,4 @@ def import_class(name):
     module_name = ".".join(components[:-1])
     class_name = components[-1]
     module = importlib.import_module(module_name)
-    class_ = getattr(module, class_name)
-    return class_
+    return getattr(module, class_name)

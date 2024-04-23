@@ -41,8 +41,7 @@ class CasbinBackend(ModelBackend):
         `user_permissions`.
         """
         policies = self.enforcer.get_permissions_for_user(user_obj.username)
-        res = tuple(map(tuple, policies))
-        return res
+        return tuple(map(tuple, policies))
 
     def get_all_permissions(self, user_obj, obj=None):
         """
