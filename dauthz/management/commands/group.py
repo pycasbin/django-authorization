@@ -26,7 +26,7 @@ class Command(BaseCommand):
         try:
             handler_enforcer = enforcers[enforcer_name]
         except KeyError:
-            raise Exception(f"Enforcer `{enforcer_name}` not found")
+            raise Exception("Enforcer `" + enforcer_name + "` not found")
 
         action = options.get("action")
         action = action.upper()
