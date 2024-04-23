@@ -19,14 +19,13 @@ class Command(BaseCommand):
         parser.add_argument("domain", nargs="?", type=str)
 
     def handle(self, *args, **options):
-        enforcer_name = options.get("enforcer")
-        if enforcer_name is None:
-            enforcer_name = "DEFAULT"
+        enforcer_name = options.get("enforcer") or "DEFAULT"
         handler_enforcer = None
+
         try:
             handler_enforcer = enforcers[enforcer_name]
         except KeyError:
-            raise Exception("Enforcer `" + enforcer_name + "` not found")
+            raise Exception(f"Enforcer `{enforcer_name}` not found")
 
         action = options.get("action")
         action = action.upper()
@@ -52,11 +51,9 @@ class Command(BaseCommand):
             domain = options.get("domain")
             if domain is None:
                 res = handler_enforcer.has_grouping_policy(user, role)
-                self.stdout.write(f"User: {user} -> Role: {role} --> Result: {res}")
+                self.stdout.write(f"User: {user} -> Role: {role} -> Result: {res}")
             else:
                 res = handler_enforcer.has_grouping_policy(user, role, domain)
-                self.stdout.write(
-                    f"User: {user} -> Role: {role} -> Domain: {domain} -> Result: {res}"
-                )
+                self.stdout.write(f"User: {user} -> Role: {role} -> Domain: {domain} -> Result: {res}")
         else:
             self.stderr.write("Action not found")

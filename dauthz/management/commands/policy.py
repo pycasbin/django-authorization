@@ -19,13 +19,13 @@ class Command(BaseCommand):
         parser.add_argument("--enforcer", type=str, help="Name of Enforcer")
 
     def handle(self, *args, **options):
-        enforcer_name = options.get("enforcer", "DEFAULT")
+        enforcer_name = options.get("enforcer") or "DEFAULT"
         handler_enforcer = None
 
         try:
             handler_enforcer = enforcers[enforcer_name]
         except KeyError:
-            raise Exception("Enforcer `" + enforcer_name + "` not found")
+            raise Exception(f"Enforcer `{enforcer_name}` not found")
 
         action = options.get("action")
         action = action.upper()
