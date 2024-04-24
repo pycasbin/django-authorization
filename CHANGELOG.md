@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.4.0](https://github.com/pycasbin/django-authorization/compare/v1.3.0...v1.4.0) (2024-04-24)
+
+
+### Features
+
+* code refactoring ([#19](https://github.com/pycasbin/django-authorization/issues/19)) ([36a11f5](https://github.com/pycasbin/django-authorization/commit/36a11f586f8723a69c3272162a698fd46f4c1e8d))
+
 # [1.3.0](https://github.com/pycasbin/django-authorization/compare/v1.2.1...v1.3.0) (2024-04-24)
 
 
