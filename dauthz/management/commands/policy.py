@@ -19,21 +19,21 @@ class Command(BaseCommand):
         parser.add_argument("--enforcer", type=str, help="Name of Enforcer")
 
     def handle(self, *args, **options):
-        enforcer_name = options.get("enforcer")
-        if enforcer_name is None:
-            enforcer_name = "DEFAULT"
+        enforcer_name = options.get("enforcer") or "DEFAULT"
         handler_enforcer = None
 
         try:
             handler_enforcer = enforcers[enforcer_name]
         except KeyError:
-            raise Exception("Enforcer `" + enforcer_name + "` not found")
+            raise Exception(f"Enforcer `{enforcer_name}` not found")
 
         action = options.get("action")
         action = action.upper()
+
         sub = options.get("sub")
         obj = options.get("obj")
         act = options.get("act")
+
         if action == "ADD":
             res = handler_enforcer.add_policy(sub, obj, act)
             if res is True:
@@ -43,6 +43,6 @@ class Command(BaseCommand):
                 self.stderr.write("Policy not added success")
         elif action == "GET":
             res = handler_enforcer.enforce(sub, obj, act)
-            print("{}, {}, {} ---> {}".format(sub, obj, act, res))
+            print(f"{sub}, {obj}, {act} -> {res}")
         else:
             self.stderr.write("Action not found")
