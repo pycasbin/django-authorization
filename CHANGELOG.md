@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.3.0](https://github.com/pycasbin/django-authorization/compare/v1.2.1...v1.3.0) (2024-04-24)
+
+
+### Features
+
+* upgrade CI Node.js to 20 and Python to 3.12 ([ac2740f](https://github.com/pycasbin/django-authorization/commit/ac2740f73690744d1ff22360b2e065a95d1322ef))
+
 ## [1.2.1](https://github.com/pycasbin/django-authorization/compare/v1.2.0...v1.2.1) (2023-10-28)
 
 
